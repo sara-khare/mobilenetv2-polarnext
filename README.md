@@ -16,9 +16,9 @@ The code for implementing the **PolarNeXt**.
 
 | Backbone | MS train | Lr schd | FPS  | AP<sup>val</sup> | AP<sup>test</sup> |        Weights         |
 | :------: | :------: | :-----: | :--: | :--------------: | :---------------: | :--------------------: |
-|   R-50   |    N     |   1x    |  49  |       33.9       |         -         |           -            |
-|   R-50   |    Y     |   3x    |  49  |       35.7       |       36.1        | [model](www.baidu.com) |
-|  R-101   |    Y     |   3x    |  38  |       37.1       |       37.4        | [model](www.baidu.com) |
+|   R-50(projects/PolarNeXt/configs/polarnext_r50-torch_fpn_1x_coco.py)   |    N     |   1x    |  49  |       33.9       |         -         |           -            |
+|   R-50(projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  49  |       35.7       |       36.1        | [model](www.baidu.com) |
+|  R-101(projects/PolarNeXt/configs/polarnext_r101-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  38  |       37.1       |       37.4        | [model](www.baidu.com) |
 
 - All models are trained on MS-COCO *train2017*.
 - Data augmentation only contains random flip and scale jitter.
@@ -81,6 +81,6 @@ matplotlib == 3.5.0
 
 (3) Inference Speed command:
 
-- ```python tools/analysis_tools/benchmark.py projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py $YOUR_PTH_FILE --task 'inference' ```
+- ```python tools/analysis_tools/benchmark.py projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py --checkpoint $YOUR_PTH_FILE --task 'inference' ```
 
 Notes: Considering that mask AP calculation requires converting polygons to pixel-level mask format, to ensure a fair comparison of inference speed, please comment out lines #600–603 in [`projects/PolarNeXt/model/head.py`](projects/PolarNeXt/model/head.py).
