@@ -68,7 +68,8 @@ matplotlib == 3.5.0
 > ⚠️ **Note**: Make sure your MMDetection version is exactly **v3.3.0** to avoid compatibility issues.
 
 
-## Testing
+
+## Run
 
 (1) Training command:
 
