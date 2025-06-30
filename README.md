@@ -16,9 +16,9 @@ The code for implementing the **PolarNeXt**.
 
 | Backbone | MS train | Lr schd | FPS  | AP<sup>val</sup> | AP<sup>test</sup> |        Weights         |
 | :------: | :------: | :-----: | :--: | :--------------: | :---------------: | :--------------------: |
-|   R-50(projects/PolarNeXt/configs/polarnext_r50-torch_fpn_1x_coco.py)   |    N     |   1x    |  49  |       33.9       |         -         |           -            |
-|   R-50(projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  49  |       35.7       |       36.1        | [model](www.baidu.com) |
-|  R-101(projects/PolarNeXt/configs/polarnext_r101-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  38  |       37.1       |       37.4        | [model](www.baidu.com) |
+|   [R-50](projects/PolarNeXt/configs/polarnext_r50-torch_fpn_1x_coco.py)   |    N     |   1x    |  49  |       33.9       |         -         |           -            |
+|   [R-50](projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  49  |       35.7       |       36.1        | [model](www.baidu.com) |
+|  [R-101](projects/PolarNeXt/configs/polarnext_r101-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  38  |       37.1       |       37.4        | [model](www.baidu.com) |
 
 - All models are trained on MS-COCO *train2017*.
 - Data augmentation only contains random flip and scale jitter.
