@@ -84,3 +84,9 @@ matplotlib == 3.5.0
 - ```python tools/analysis_tools/benchmark.py projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py --checkpoint $YOUR_PTH_FILE --task 'inference' ```
 
 Notes: Considering that mask AP calculation requires converting polygons to pixel-level mask format, to ensure a fair comparison of inference speed, please comment out lines #600–603 in [`projects/PolarNeXt/model/head.py`](projects/PolarNeXt/model/head.py).
+
+
+---
+
+If you find this project helpful, please consider giving it a ⭐️ or a 🍴 on GitHub. Your support motivates us to keep improving!
+
