@@ -58,7 +58,7 @@ pip install -v -e .
 
 To avoid potential errors, the following versions are recommanded:
 
-```python
+```bash
 Python == 3.10
 PyTorch == 2.0.0
 CUDA == 11.8
