@@ -55,9 +55,6 @@ You may also directly integrate our project into your existing MMDetection frame
 pip install -v -e .
 ```
 
-> ⚠️ **Note**: Make sure your MMDetection version is exactly **v3.3.0** to avoid compatibility issues.
-
-
 
 To avoid potential errors, the following versions are recommanded:
 
@@ -68,7 +65,7 @@ CUDA == 11.8
 numpy == 1.24.3
 matplotlib == 3.5.0
 ```
-
+> ⚠️ **Note**: Make sure your MMDetection version is exactly **v3.3.0** to avoid compatibility issues.
 
 
 ## Testing
