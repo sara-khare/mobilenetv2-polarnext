@@ -1,6 +1,6 @@
 # **PolarNeXt: Rethink Instance Segmentation with Polar Representation**
 
-The code for implementing the [**PolarNeXt**](https://openaccess.thecvf.com/content/CVPR2025/html/Sun_PolarNeXt_Rethink_Instance_Segmentation_with_Polar_Representation_CVPR_2025_paper.html)(CVPR 2025). 
+The code for implementing the [**PolarNeXt**](https://openaccess.thecvf.com/content/CVPR2025/html/Sun_PolarNeXt_Rethink_Instance_Segmentation_with_Polar_Representation_CVPR_2025_paper.html) (CVPR 2025). 
 
 
 ## News
