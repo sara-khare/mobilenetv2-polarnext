@@ -101,6 +101,6 @@ If you use PolarNeXt in your research or wish to refer to the baseline results p
 }
 ```
 
-## DING！
+## Oi！
 If you find this project helpful, please consider giving it a ⭐️ or a 🍴 on GitHub. Your support motivates us to keep improving!
 
