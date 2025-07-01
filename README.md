@@ -90,6 +90,7 @@ Notes: Considering that mask AP calculation requires converting polygons to pixe
 ## Citation
 If you use PolarNeXt in your research or wish to refer to the baseline results published here, please use the following BibTeX entry.
 
+```
 @InProceedings{Sun_2025_CVPR,
     author    = {Sun, Jiacheng and Zhou, Xinghong and Wu, Yiqiang and Zhu, Bin and Lu, Jiaxuan and Qin, Yu and Li, Xiaomao},
     title     = {PolarNeXt: Rethink Instance Segmentation with Polar Representation},
@@ -98,6 +99,7 @@ If you use PolarNeXt in your research or wish to refer to the baseline results p
     year      = {2025},
     pages     = {19315-19324}
 }
+```
 
 ## DING！
 If you find this project helpful, please consider giving it a ⭐️ or a 🍴 on GitHub. Your support motivates us to keep improving!
