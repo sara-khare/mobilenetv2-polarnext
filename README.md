@@ -86,7 +86,19 @@ matplotlib == 3.5.0
 Notes: Considering that mask AP calculation requires converting polygons to pixel-level mask format, to ensure a fair comparison of inference speed, please comment out lines #600–603 in [`projects/PolarNeXt/model/head.py`](projects/PolarNeXt/model/head.py).
 
 
----
 
+## Citation
+If you use PolarNeXt in your research or wish to refer to the baseline results published here, please use the following BibTeX entry.
+
+@InProceedings{Sun_2025_CVPR,
+    author    = {Sun, Jiacheng and Zhou, Xinghong and Wu, Yiqiang and Zhu, Bin and Lu, Jiaxuan and Qin, Yu and Li, Xiaomao},
+    title     = {PolarNeXt: Rethink Instance Segmentation with Polar Representation},
+    booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {19315-19324}
+}
+
+## DING！
 If you find this project helpful, please consider giving it a ⭐️ or a 🍴 on GitHub. Your support motivates us to keep improving!
 
