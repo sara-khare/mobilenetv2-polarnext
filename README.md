@@ -18,7 +18,7 @@ The code for implementing the [**PolarNeXt**](https://openaccess.thecvf.com/cont
 | :------: | :------: | :-----: | :--: | :--------------: | :---------------: | :--------------------: |
 |   [R-50](projects/PolarNeXt/configs/polarnext_r50-torch_fpn_1x_coco.py)   |    N     |   1x    |  49  |       33.9       |         -         |           -            |
 |   [R-50](projects/PolarNeXt/configs/polarnext_r50-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  49  |       35.7       |       36.1        | [Baidu](https://pan.baidu.com/s/1LShE7EbeBsuK77I0hcSHbw?pwd=lyrn) & [Google](https://drive.google.com/file/d/10WT1sTK0nIQ_oWUCYFxxmplpw3RQiQ1J/view?usp=drive_link) |
-|  [R-101](projects/PolarNeXt/configs/polarnext_r101-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  38  |       37.1       |       37.4        | [Baidu](https://pan.baidu.com/s/1yXuZ01CQvnSeQNtzDOQYsA?pwd=lyrn) |
+|  [R-101](projects/PolarNeXt/configs/polarnext_r101-torch_fpn_3x_ms_coco.py)   |    Y     |   3x    |  38  |       37.1       |       37.4        | [Baidu](https://pan.baidu.com/s/1yXuZ01CQvnSeQNtzDOQYsA?pwd=lyrn) & [Google](https://drive.google.com/file/d/1WaB1vYC7YkUVZtQ23pc1_hJRU6qFx0Dq/view?usp=drive_link) |
 
 - All models are trained on MS-COCO *train2017*.
 - Data augmentation only contains random flip and scale jitter.
