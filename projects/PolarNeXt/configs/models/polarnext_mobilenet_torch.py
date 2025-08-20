@@ -9,30 +9,26 @@ model = dict(
         pad_size_divisor=32
     ),
     backbone=dict(
-        type='ResNet',
-        depth=50,
-        num_stages=4,
-        out_indices=(0, 1, 2, 3),
-        frozen_stages=1,
-        norm_cfg=dict(type='BN', requires_grad=True),
-        norm_eval=True,
-        style='pytorch',
-        init_cfg=dict(
-            type='Pretrained',
-            checkpoint='torchvision://resnet50')),
+        type='MobileNetV2',
+        widen_factor=1.0,        # standard width
+        out_indices=(1, 2, 4, 6),   # layers to extract features for FPN
+        init_cfg= None
+    ),
     neck=dict(
         type='FPN',
-        in_channels=[256, 512, 1024, 2048],
+        # These are the correct output channels for MobileNetV2 (at out_indices 2, 4, 6, 7)
+        in_channels=[24, 32, 96, 320], 
         out_channels=256,
-        start_level=1,
-        add_extra_convs='on_output',  # use P5
+        start_level=0,
+        add_extra_convs='on_output',
         num_outs=5,
-        relu_before_extra_convs=True),
+        relu_before_extra_convs=True
+    ),
     bbox_head=dict(
         type='PolarNeXtHead',
         num_rays=36,
         num_sample=9,
-        num_classes=5,
+        num_classes=5, 
         in_channels=256,
         stacked_convs=4,
         feat_channels=256,
@@ -51,11 +47,13 @@ model = dict(
             type='RMaskIoULoss',
             loss_weight=1.0),
         loss_centerness=dict(
-            type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0)),
+            type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0)
+    ),
     # testing settings
     test_cfg=dict(
         nms_pre=1000,
         min_bbox_size=0,
         score_thr=0.05,
         nms=dict(type='nms', iou_threshold=0.5),
-        max_per_img=100))
+        max_per_img=100)
+)

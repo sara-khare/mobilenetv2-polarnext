@@ -2,6 +2,11 @@
 import argparse
 import os
 import os.path as osp
+import sys
+sys.path.insert(0, '/home/khare/PolarNeXt/')
+
+# force import your custom dataset so registry is updated
+from mmdet.datasets.uavid_dataset import UAVidDataset
 
 from mmengine.config import Config, DictAction
 from mmengine.registry import RUNNERS
@@ -66,6 +71,13 @@ def main():
 
     # load config
     cfg = Config.fromfile(args.config)
+    #print(cfg)
+    #print('data_root =', cfg.data_root)
+
+    #cfg.train_dataloader.dataset.ann_file = "/home/khare/dataset/coco_reduced/annotations/instances_train2017_remap_clean.json"
+    cfg.val_dataloader.dataset.ann_file = "/home/khare/dataset/coco_reduced/annotations/instances_val2017_remap_clean.json"
+    #print("DEBUG>>> train_dataloader: ",cfg.train_dataloader.dataset.ann_file)
+    #print("DEBUG>>> val_dataloader: ",cfg.val_dataloader.dataset.ann_file)
     cfg.launcher = args.launcher
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
@@ -113,9 +125,10 @@ def main():
         # if 'runner_type' is set in the cfg
         runner = RUNNERS.build(cfg)
 
+    print("DEBUG>>> train_dataloader: ", cfg.train_dataloader.dataset.ann_file)
+    print("DEBUG>>> val_dataloader:   ", cfg.val_dataloader.dataset.ann_file)
     # start training
     runner.train()
-
 
 if __name__ == '__main__':
     main()

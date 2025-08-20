@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoPolarDataset'
-data_root = 'J:\\Dataset\\coco2017\\data\\'
+data_root = '/home/khare/dataset/coco_reduced/'
 
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
@@ -43,7 +43,7 @@ train_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='annotations/instances_train2017.json',
+        ann_file='annotations/instances_train2017_remap_clean.json',
         data_prefix=dict(img='train2017/'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
@@ -57,7 +57,7 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='annotations/instances_val2017.json',
+        ann_file='annotations/instances_val2017_remap_clean.json',
         data_prefix=dict(img='val2017/'),
         test_mode=True,
         pipeline=test_pipeline,
@@ -66,13 +66,13 @@ test_dataloader = val_dataloader
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_val2017.json',
+    ann_file=data_root + 'annotations/instances_val2017_remap_clean.json',
     metric=['bbox', 'segm'],
     format_only=False,
     backend_args=backend_args)
 test_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_val2017.json',
+    ann_file=data_root + 'annotations/instances_val2017_remap_clean.json',
     metric=['bbox', 'segm'],
     format_only=False,
     backend_args=backend_args)

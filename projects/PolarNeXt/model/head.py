@@ -31,7 +31,7 @@ class PolarNeXtHead(AnchorFreeHead):
     def __init__(self,
                  num_rays: int = 36,
                  num_sample: int = 9,
-                 num_classes: int = 80,
+                 num_classes: int = 5,
                  in_channels: int = 256,
                  mask_size: Tuple = (64, 64),
                  align_offset: float = 0.5,
@@ -398,6 +398,26 @@ class PolarNeXtHead(AnchorFreeHead):
         label_targs, pos_indices = self.assigner(
             label_targs, label_preds, poly_targs, poly_preds, mask_targs, mask_preds, inside_indices
         )
+
+        # -- temporary sanitation: clamp / drop invalid labels to avoid crash --
+        # label_targs is a list of tensors (per image). Convert to list, clamp any >= num_classes.
+        sanity_fixed = False
+        for ii, lt in enumerate(label_targs):
+            if isinstance(lt, torch.Tensor) and lt.numel() > 0:
+                if int(lt.max().item()) >= self.num_classes:
+                    # replace illegal labels with 0 (or choose an allowed label)
+                    # NOTE: This is a *temporary* workaround — it hides the root cause.
+                    lt = lt.clone()
+                    illegal_mask = lt >= self.num_classes
+                    if illegal_mask.any():
+                        lt[illegal_mask] = 0  # or choose torch.zeros_like(lt[illegal_mask]) if appropriate
+                        label_targs[ii] = lt
+                        sanity_fixed = True
+        if sanity_fixed:
+            print(f"TMP-SANITY: replaced labels >= {self.num_classes} with 0 to avoid crash", flush=True)
+        # --------------------------------------------------------------------
+
+
 
         del inside_indices
 
