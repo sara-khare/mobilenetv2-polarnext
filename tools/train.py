@@ -74,7 +74,7 @@ def main():
     #print(cfg)
     #print('data_root =', cfg.data_root)
 
-    #cfg.train_dataloader.dataset.ann_file = "/home/khare/dataset/coco_reduced/annotations/instances_train2017_remap_clean.json"
+    cfg.train_dataloader.dataset.ann_file = "/home/khare/dataset/coco_reduced/annotations/instances_train2017_remap_clean.json"
     cfg.val_dataloader.dataset.ann_file = "/home/khare/dataset/coco_reduced/annotations/instances_val2017_remap_clean.json"
     #print("DEBUG>>> train_dataloader: ",cfg.train_dataloader.dataset.ann_file)
     #print("DEBUG>>> val_dataloader: ",cfg.val_dataloader.dataset.ann_file)
@@ -125,8 +125,8 @@ def main():
         # if 'runner_type' is set in the cfg
         runner = RUNNERS.build(cfg)
 
-    print("DEBUG>>> train_dataloader: ", cfg.train_dataloader.dataset.ann_file)
-    print("DEBUG>>> val_dataloader:   ", cfg.val_dataloader.dataset.ann_file)
+    #print("DEBUG>>> train_dataloader: ", cfg.train_dataloader.dataset.ann_file)
+    #print("DEBUG>>> val_dataloader:   ", cfg.val_dataloader.dataset.ann_file)
     # start training
     runner.train()
 

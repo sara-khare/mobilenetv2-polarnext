@@ -413,8 +413,9 @@ class PolarNeXtHead(AnchorFreeHead):
                         lt[illegal_mask] = 0  # or choose torch.zeros_like(lt[illegal_mask]) if appropriate
                         label_targs[ii] = lt
                         sanity_fixed = True
-        if sanity_fixed:
-            print(f"TMP-SANITY: replaced labels >= {self.num_classes} with 0 to avoid crash", flush=True)
+        #if sanity_fixed:
+            #print(f"TMP-SANITY: replaced labels >= {self.num_classes} with 0 to avoid crash", flush=True)
+            
         # --------------------------------------------------------------------
 
 

@@ -48,7 +48,7 @@ test_pipeline = [
                    'scale_factor'))
 ]
 
-train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=36, val_interval=1)
+train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=6, val_interval=1)
 
 train_dataloader = dict(
     batch_size=4,
@@ -65,6 +65,22 @@ train_dataloader = dict(
         pipeline=train_pipeline,
         backend_args=backend_args))
 
+val_dataloader = dict(
+    batch_size=1,
+    num_workers=2,
+    persistent_workers=True,
+    drop_last=False,
+    sampler=dict(type='DefaultSampler', shuffle=False),
+    dataset=dict(
+        type=dataset_type,
+        data_root=data_root,
+        ann_file='/home/khare/dataset/coco_reduced/annotations/instances_val2017.json',
+        data_prefix=dict(img='/home/khare/dataset/coco_reduced/val2017/'),
+        test_mode=True,
+        pipeline=test_pipeline,
+        backend_args=backend_args))
+test_dataloader = val_dataloader
+
 # optimizer
 optim_wrapper = dict(
     optimizer=dict(lr=0.01),
@@ -73,9 +89,10 @@ optim_wrapper = dict(
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file='/home/khare/dataset/coco_reduced/annotations/instances_val2017_remap_clean.json',
-    metric='bbox',      
+    ann_file='/home/khare/dataset/coco_reduced/annotations/instances_val2017_remap_clean_subset500.json',
+    metric='segm',      
     format_only=False,
+    outfile_prefix='/home/khare/PolarNeXt/work_dirs/polarnext_mobilenet_coco/results',
     backend_args=None
 )
 
@@ -83,6 +100,7 @@ test_evaluator = dict(
     type='CocoMetric',
     ann_file=None,       # no ground truth for test
     metric='bbox',
-    format_only=True,
+    format_only=False,
+    outfile_prefix='/home/khare/PolarNeXt/work_dirs/polarnext_mobilenet_coco/results',
     backend_args=None
 )
